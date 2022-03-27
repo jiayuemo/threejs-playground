@@ -38,6 +38,11 @@ import {
 import { generateCloudMesh } from './components/clouds/';
 import { generateSeaMesh } from './components/sea';
 import { generateContainerMesh, generateFloorMesh } from "./components/boundaries";
+import {
+  snowmanSpheres,
+  stoneSphere,
+  treePyramids
+} from './components/doodles';
 
 
 /**
@@ -272,51 +277,4 @@ function createTiles(textures, envMap) {
   };
 
   return hexagonMeshes;
-}
-
-/**
- * Tile logic is very tightly coupled with scene prop logic -
- * thats to reuse position information instead of passing it everywhere
- */
-// Closely associated with stone hexagon geometry (texture)
-function stoneSphere(height, position) {
-  // random small offsets for rock displacement
-  const px = Math.random() * 0.4;
-  const py = Math.random() * 0.4;
-
-  // create a radius between 0.1 and 0.4
-  const geo = new SphereGeometry(Math.random() * 0.3 + 0.1, 7, 7);
-  geo.translate(position.x + px, height, position.y + py);
-
-  return geo;
-}
-
-// Closely associated with grass hexagon geometry (texture)
-function treePyramids(height, position) {
-  const treeHeight = Math.random() * 1 + 1.25;
-
-  // args (top radius, bottom radius, height, sides bounding the circles)
-  const geo1 = new CylinderGeometry(0, 1.5, treeHeight, 3);
-  geo1.translate(position.x, height + treeHeight * 0 + 0.75, position.y);
-  
-  const geo2 = new CylinderGeometry(0, 1.15, treeHeight, 3);
-  geo2.translate(position.x, height + treeHeight * 0.6 + 1, position.y);
-
-  const geo3 = new CylinderGeometry(0, 0.8, treeHeight, 3);
-  geo3.translate(position.x, height + treeHeight * 1.25 + 1, position.y);
-
-  return mergeBufferGeometries([geo1, geo2, geo3]);
-}
-
-function snowmanSpheres(height, position) {
-  const snowmanHeight = Math.random() * 0.5 + 1.25;
-
-  const bottom = new SphereGeometry(0.7, 8, 8);
-  bottom.translate(position.x, height + snowmanHeight * 0, position.y);
-  const middle = new SphereGeometry(0.5, 8, 8);
-  middle.translate(position.x, height + snowmanHeight * 0.6, position.y);
-  const top = new SphereGeometry(0.3, 7, 7);
-  top.translate(position.x, height + snowmanHeight * 1, position.y);
-
-  return mergeBufferGeometries([bottom, middle, top]);
 }
