@@ -12,13 +12,11 @@ import {
   TextureLoader,
   PCFSoftShadowMap,
   PointLight,
-} from 'https://cdn.skypack.dev/three@0.137';
+} from 'three';
 import {
-  RGBELoader
-} from 'https://cdn.skypack.dev/three-stdlib@2.8.5/loaders/RGBELoader';
-import {
+  RGBELoader,
   OrbitControls
-} from 'https://cdn.skypack.dev/three-stdlib@2.8.5/controls/OrbitControls';
+} from 'three-stdlib';
 
 import { generateCloudMesh } from './components/clouds/';
 import { generateSeaMesh } from './components/sea';
