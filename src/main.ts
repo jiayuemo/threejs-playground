@@ -37,6 +37,7 @@ import {
 
 import { generateCloudMesh } from './components/clouds/';
 import { generateSeaMesh } from './components/sea';
+import { generateContainerMesh, generateFloorMesh } from "./components/boundaries";
 
 
 /**
@@ -137,10 +138,10 @@ const HEIGHT_CONSTANTS = {
   const seaMesh = generateSeaMesh(textures.water, envMap);
   scene.add(seaMesh);
 
-  const mapContainer = createMapContainer(textures.dirt, envMap);
+  const mapContainer = generateContainerMesh(textures.dirt, envMap);
   scene.add(mapContainer);
 
-  const mapFloor = createMapFloor(textures.dirt2, envMap);
+  const mapFloor = generateFloorMesh(textures.dirt2, envMap);
   scene.add(mapFloor);
 
   renderer.setAnimationLoop(() => {
@@ -272,64 +273,6 @@ function createTiles(textures, envMap) {
 
   return hexagonMeshes;
 }
-
-/**
-* Meshes based on cylinder geometries
- */
-function createSeaMesh(texture, envMap) {
-  const seaMesh = new Mesh(
-    new CylinderGeometry(17, 17, MAX_HEIGHT * 0.2, 50),
-    new MeshPhysicalMaterial({
-      envMap: envMap,
-      color: new Color("#55aaff").convertSRGBToLinear().multiplyScalar(3),
-      envMapIntensity: 0.2,
-      roughness: 1,
-      metalness: 0.025,
-      roughnessMap: texture,
-      metalnessMap: texture,
-      // leverage transmission shader of threejs - used for glass/water
-      // if you turn this on you will suffer a huge performance loss
-      // ior: 1.4,
-      // transmission: 1,
-      // transparent: true,
-      // thickness: 1.5
-    })
-  );
-  seaMesh.receiveShadow = true;
-  seaMesh.position.set(0, MAX_HEIGHT * 0.1, 0);
-  return seaMesh;
-}
-
-function createMapContainer(texture, envMap) {
-  const mapContainer = new Mesh(
-    new CylinderGeometry(17.1, 17.1, MAX_HEIGHT * 0.25, 50, 1, true),
-    new MeshPhysicalMaterial({
-      envMap: envMap,
-      map: texture,
-      envMapIntensity: 0.2,
-      side: DoubleSide,
-    })
-  );
-  mapContainer.receiveShadow = true;
-  mapContainer.position.set(0, MAX_HEIGHT * 0.075, 0);
-  return mapContainer;
-}
-
-function createMapFloor(texture, envMap) {
-  const mapFloor = new Mesh(
-    new CylinderGeometry(18.5, 18.5, MAX_HEIGHT * 0.1, 50),
-    new MeshPhysicalMaterial({
-      envMap: envMap,
-      map: texture,
-      envMapIntensity: 0.1,
-      side: DoubleSide
-    })
-  );
-  mapFloor.receiveShadow = true;
-  mapFloor.position.set(0, -MAX_HEIGHT * 0.05, 0);
-  return mapFloor;
-}
-
 
 /**
  * Tile logic is very tightly coupled with scene prop logic -
