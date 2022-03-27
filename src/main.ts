@@ -35,7 +35,8 @@ import {
   SimplexNoise
 } from 'https://cdn.skypack.dev/simplex-noise';
 
-import { generateCloudMesh } from './components/clouds/'; 
+import { generateCloudMesh } from './components/clouds/';
+import { generateSeaMesh } from './components/sea';
 
 
 /**
@@ -133,7 +134,7 @@ const HEIGHT_CONSTANTS = {
   const clouds = generateCloudMesh(envMap);
   scene.add(clouds);
 
-  const seaMesh = createSeaMesh(textures.water, envMap);
+  const seaMesh = generateSeaMesh(textures.water, envMap);
   scene.add(seaMesh);
 
   const mapContainer = createMapContainer(textures.dirt, envMap);
