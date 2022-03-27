@@ -4,7 +4,7 @@ import {
 import { mergeBufferGeometries } from 'three-stdlib';
 
 // Will be Closely associated with grass hexagon geometry (texture)
-export function treePyramids(height, position) {
+export function treePyramids(height, position): CylinderGeometry {
   const treeHeight = Math.random() * 1 + 1.25;
 
   // args (top radius, bottom radius, height, sides bounding the circles)
@@ -17,5 +17,5 @@ export function treePyramids(height, position) {
   const geo3 = new CylinderGeometry(0, 0.8, treeHeight, 3);
   geo3.translate(position.x, height + treeHeight * 1.25 + 1, position.y);
 
-  return mergeBufferGeometries([geo1, geo2, geo3]);
+  return mergeBufferGeometries([geo1, geo2, geo3]) as CylinderGeometry;
 }

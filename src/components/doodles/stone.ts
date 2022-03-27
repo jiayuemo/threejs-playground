@@ -5,7 +5,7 @@ import { SphereGeometry } from "three";
  * thats to reuse position information instead of passing it everywhere
  */
 // Will be Closely associated with stone hexagon geometry (texture)
-export function stoneSphere(height, position) {
+export function stoneSphere(height, position): SphereGeometry {
   // random small offsets for rock displacement
   const px = Math.random() * 0.4;
   const py = Math.random() * 0.4;
