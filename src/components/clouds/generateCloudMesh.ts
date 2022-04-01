@@ -2,12 +2,18 @@ import {
   BufferGeometry,
   SphereGeometry,
   MeshStandardMaterial,
-  Mesh
+  Mesh,
+  Texture
 } from 'three';
 import { mergeBufferGeometries } from 'three-stdlib';
 import { MAX_HEIGHT } from '../../consts';
 
-export function generateCloudMesh(envMap) {
+/**
+ * Generates the clouds littered throughout the map airspace
+ * @param environmentMap environmentMap asset
+ * @returns ThreeJS mesh that needs to be added to the scene
+ */
+export function generateCloudMesh(environmentMap: Texture): Mesh<SphereGeometry, MeshStandardMaterial> {
   let cloudsGeometry = new SphereGeometry(0, 0, 0);
   const cloudCount = Math.floor(Math.pow(Math.random(), 0.45) * 6);
 
@@ -38,7 +44,7 @@ export function generateCloudMesh(envMap) {
   const cloudsMesh = new Mesh(
     cloudsGeometry,
     new MeshStandardMaterial({
-      envMap: envMap,
+      envMap: environmentMap,
       envMapIntensity: 0.75,
       flatShading: true
     })

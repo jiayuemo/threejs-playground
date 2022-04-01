@@ -1,10 +1,16 @@
 import {
-  CylinderGeometry
+  CylinderGeometry,
+  Vector2
 } from 'three';
 import { mergeBufferGeometries } from 'three-stdlib';
 
-// Will be Closely associated with grass hexagon geometry (texture)
-export function treePyramids(height, position): CylinderGeometry {
+/**
+ * Tree doodle logic is coupled with grass hexagonGeometry (based on texture asset)
+ * @param height (z) coordinate of bottom tree Pyramid center
+ * @param position (x,y) cartesian coordinates of bottom tree Pyramid center
+ * @returns a BufferGeometry that can be merged with another BufferGeometry with mergeBufferGeometries
+ */
+export function treePyramids(height: number, position: Vector2): CylinderGeometry {
   const treeHeight = Math.random() * 1 + 1.25;
 
   // args (top radius, bottom radius, height, sides bounding the circles)

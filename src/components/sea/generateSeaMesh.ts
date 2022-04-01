@@ -3,14 +3,24 @@ import {
   MeshPhysicalMaterial,
   CylinderGeometry,
   Color,
+  Texture,
 } from 'three';
 import { MAX_HEIGHT } from '../../consts';
 
-export function generateSeaMesh(texture, envMap) {
+/**
+ * Generates the sea layer of the map
+ * @param texture texture asset
+ * @param environmentMap environmentMap asset
+ * @returns ThreeJS mesh that needs to be added to the scene
+ */
+export function generateSeaMesh(
+  texture: Texture,
+  environmentMap: Texture
+): Mesh<CylinderGeometry, MeshPhysicalMaterial> {
   const seaMesh = new Mesh(
     new CylinderGeometry(17, 17, MAX_HEIGHT * 0.2, 50),
     new MeshPhysicalMaterial({
-      envMap: envMap,
+      envMap: environmentMap,
       color: new Color("#55aaff").convertSRGBToLinear().multiplyScalar(3),
       envMapIntensity: 0.2,
       roughness: 1,

@@ -13,7 +13,11 @@ import {
   treePyramids
 } from '../doodles';
 
-export function generateHexagonGeometries() {
+/**
+ * Generate hexagon geometries with groupings by texture type
+ * @returns object all hexagon geometries in an object for easy access
+ */
+export function generateHexagonGeometries(): Record<string, BoxGeometry> {
   const simplex = new SimplexNoise();
   const hexagonGeometries = {
     stone: new BoxGeometry(0,0,0),
@@ -43,7 +47,7 @@ export function generateHexagonGeometries() {
         if (nextGeoHeight > HEIGHT_CONSTANTS.SNOW) {
           hexagonGeometries.snow = mergeBufferGeometries([hexagonGeometries.snow, nextGeo]) as BoxGeometry;
           if (Math.random() > 0.4) {
-            hexagonGeometries.snow = mergeBufferGeometries([hexagonGeometries.snow, snowmanSpheres(nextGeoHeight,nextGeoPosition)]) as BoxGeometry;
+            hexagonGeometries.snow = mergeBufferGeometries([hexagonGeometries.snow, snowmanSpheres(nextGeoHeight, nextGeoPosition)]) as BoxGeometry;
           }
         } else if (nextGeoHeight > HEIGHT_CONSTANTS.STONE) {
           hexagonGeometries.stone = mergeBufferGeometries([hexagonGeometries.stone, nextGeo]) as BoxGeometry;
@@ -81,17 +85,18 @@ export function generateHexagonGeometries() {
   return hexagonGeometries;
 }
 
-function hexGeometry(height, position) {
+function hexGeometry(height: number, position: Vector2): CylinderGeometry {
   const geo = new CylinderGeometry(1,1, height, 6, 1, false);
   geo.translate(position.x, height * 0.5, position.y);
   return geo;
 }
 
-function tileToPositon(tileX, tileY) {
+function tileToPositon(tileX: number, tileY: number): Vector2 {
   // X position: A * B
   // A term represents the passed in X coordinate, center
   //  add 0.5 ONLY when X coordinate is odd to create an alternate effect
   // B term represents the spacing between tile centers in x axis
+  //
   // Y position: C * D
   // C term represents the passed in Y coordinate, center
   // D term represents the spacing between tile centers in y axis

@@ -1,11 +1,15 @@
-import { SphereGeometry } from "three";
+import { 
+  SphereGeometry, 
+  Vector2 
+} from "three";
 
 /**
- * Tile logic is very tightly coupled with scene prop (doodles) logic -
- * thats to reuse position information instead of passing it everywhere
+ * Stone doodle logic is coupled with stone/sand/dirt hexagonGeometry (based on texture asset)
+ * @param height (z) coordinate of stone center
+ * @param position (x,y) cartesian coordinates of stone center
+ * @returns a BufferGeometry that can be merged with another BufferGeometry with mergeBufferGeometries
  */
-// Will be Closely associated with stone hexagon geometry (texture)
-export function stoneSphere(height, position): SphereGeometry {
+export function stoneSphere(height: number, position: Vector2): SphereGeometry {
   // random small offsets for rock displacement
   const px = Math.random() * 0.4;
   const py = Math.random() * 0.4;
