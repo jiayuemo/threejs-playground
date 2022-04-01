@@ -6,7 +6,7 @@ import {
   Texture
 } from 'three';
 import { mergeBufferGeometries } from 'three-stdlib';
-import { MAX_HEIGHT } from '../../consts';
+import { MAX_HEIGHT } from 'consts';
 
 /**
  * Generates the clouds littered throughout the map airspace

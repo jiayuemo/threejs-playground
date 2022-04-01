@@ -5,7 +5,7 @@ import {
   DoubleSide,
   Texture
 } from 'three';
-import { MAX_HEIGHT } from '../../consts';
+import { MAX_HEIGHT } from 'consts';
 
 /**
  * Generates the low wall surrounding the map

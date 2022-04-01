@@ -5,7 +5,7 @@ import {
   Color,
   Texture,
 } from 'three';
-import { MAX_HEIGHT } from '../../consts';
+import { MAX_HEIGHT } from 'consts';
 
 /**
  * Generates the sea layer of the map

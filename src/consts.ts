@@ -1,9 +1,15 @@
 /**
  * Define some height constants used for hexagon tiles
+ */
+
+/**
  * MAX_HEIGHT represents the tallest a tile can get
- * HEIGHT_CONSTANTS represents the height ranges in which a texture type is allowed
  */
 const MAX_HEIGHT = 10;
+
+/**
+ * HEIGHT_CONSTANTS represents the height ranges in which a texture type is allowed
+ */
 const HEIGHT_CONSTANTS = {
   SNOW: MAX_HEIGHT * 0.9,
   STONE: MAX_HEIGHT * 0.8,

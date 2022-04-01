@@ -6,12 +6,12 @@ import {
 import { mergeBufferGeometries } from 'three-stdlib';
 import SimplexNoise from 'simplex-noise';
 
-import { MAX_HEIGHT, HEIGHT_CONSTANTS } from '../../consts';
+import { MAX_HEIGHT, HEIGHT_CONSTANTS } from 'consts';
 import {
   snowmanSpheres,
   stoneSphere,
   treePyramids
-} from '../doodles';
+} from 'components/doodles';
 
 /**
  * Generate hexagon geometries with groupings by texture type

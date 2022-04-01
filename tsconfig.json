@@ -13,7 +13,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "types": [ "vite/client", "three" ]
+    "types": [ "vite/client", "three" ],
+    "baseUrl": "./src"
   },
   "include": ["src"]
 }

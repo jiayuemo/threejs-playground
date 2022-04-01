@@ -1,5 +1,3 @@
-import "./style.css";
-
 import { 
   Scene,
   PerspectiveCamera,
@@ -18,11 +16,11 @@ import {
   OrbitControls
 } from 'three-stdlib';
 
-import { generateCloudMesh } from './components/clouds/';
-import { generateSeaMesh } from './components/sea';
-import { generateContainerMesh, generateFloorMesh } from "./components/boundaries";
-import { generateTileMesh } from './components/tiles';
-
+import "./style.css";
+import { generateCloudMesh } from 'components/clouds/';
+import { generateSeaMesh } from 'components/sea';
+import { generateContainerMesh, generateFloorMesh } from "components/boundaries";
+import { generateTileMesh } from 'components/tiles';
 
 /**
  * Define the scene - highest level
