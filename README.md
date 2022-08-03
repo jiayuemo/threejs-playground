@@ -3,6 +3,7 @@ Procedural Map
 
 <h2>Description</h2>
 Generate a random miniaturized map with geometric shapes in a blocky cartoon like style on page reload
+You can see this live at https://jiayuemo.github.io/threejs-playground/ 
 
 <h2>Credit and Workflow</h2>
 This project is an extension of the ThreeJS in practice tutorial by @Domenico_brz.
@@ -16,6 +17,10 @@ Workflow toolchain and developer tools have been adapted from a tutorial by @alv
 - [Twitter] (https://twitter.com/alvarosaburido1)
 - [His Personal Website] (https://alvarosaburido.dev/)
 - [Youtube Tutorial] (https://www.youtube.com/watch?v=TiWRM3J5FlI&ab_channel=AlvaroDevLabs)
+
+Deployment toolchain has been adapted from a tutorial by @_JamesIves.
+- [Twitter] (https://twitter.com/_JamesIves)
+- [Blog] (https://jamesiv.es/blog/github/actions/2022/01/23/deploying-to-github-pages-with-github-actions)
 
 At the conclusion of the series, the procedural map was generated with threeJS in vanillaJS.
 
@@ -41,7 +46,7 @@ This is a vanillaJS project with typescript.
 
 <h2>Local development</h2>
 ```
-npm i
-npm run dev
+# Make sure you are on Node v16+
+> npm i
+> npm run dev
 ```
-
