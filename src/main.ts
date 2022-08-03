@@ -22,7 +22,7 @@ import { generateSeaMesh } from 'components/sea';
 import { generateContainerMesh, generateFloorMesh } from "components/boundaries";
 import { generateTileMesh } from 'components/tiles';
 
-import envmapURL from '../assets/envmap.hdr?url';
+import envmapURL from '../assets/envmap.hdr';
 
 import dirtURL from '../assets/dirt.png';
 import dirt2URL from '../assets/dirt2.jpg';
