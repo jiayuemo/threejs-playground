@@ -12,6 +12,11 @@ This project is an extension of the ThreeJS in practice tutorial by @Domenico_br
 - [His Personal Website] (https://domenicobrz.github.io/webgl/)
 - [Youtube Tutorial Series] (https://www.youtube.com/watch?v=HsCYEA_UuZA)
 
+Workflow toolchain and developer tools have been adapted from a tutorial by @alvarosaburido1.
+- [Twitter] (https://twitter.com/alvarosaburido1)
+- [His Personal Website] (https://alvarosaburido.dev/)
+- [Youtube Tutorial] (https://www.youtube.com/watch?v=TiWRM3J5FlI&ab_channel=AlvaroDevLabs)
+
 At the conclusion of the series, the procedural map was generated with threeJS in vanillaJS.
 
 Additional work beyond the tutorial includes:
