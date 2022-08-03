@@ -3,6 +3,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import eslint from "@rollup/plugin-eslint"
 
 export default defineConfig({
+  base: './',
   plugins: [
     tsconfigPaths(),
     {
