@@ -22,6 +22,16 @@ import { generateSeaMesh } from 'components/sea';
 import { generateContainerMesh, generateFloorMesh } from "components/boundaries";
 import { generateTileMesh } from 'components/tiles';
 
+import envmapURL from '../assets/envmap.hdr?url';
+
+import dirtURL from '../assets/dirt.png';
+import dirt2URL from '../assets/dirt2.jpg';
+import grassURL from '../assets/grass.jpg';
+import sandURL from '../assets/sand.jpg';
+import waterURL from '../assets/water.jpg';
+import stoneURL from '../assets/stone.png';
+import snowURL from '../assets/snow.png';
+
 /**
  * Define the scene - highest level
  */
@@ -78,17 +88,17 @@ controls.enableDamping = true;
 (async function() {
   // Process the env map so that we can use them in our materials
   const pmrem = new PMREMGenerator(renderer);
-  const envMapTexture = await new RGBELoader().setDataType(FloatType).loadAsync("assets/envmap.hdr");
+  const envMapTexture = await new RGBELoader().setDataType(FloatType).loadAsync(envmapURL);
   const envMap = pmrem.fromEquirectangular(envMapTexture).texture;
 
   const textures = {
-    dirt: await new TextureLoader().loadAsync("assets/dirt.png"),
-    dirt2: await new TextureLoader().loadAsync("assets/dirt2.jpg"),
-    grass: await new TextureLoader().loadAsync("assets/grass.jpg"),
-    sand: await new TextureLoader().loadAsync("assets/sand.jpg"),
-    water: await new TextureLoader().loadAsync("assets/water.jpg"),
-    stone: await new TextureLoader().loadAsync("assets/stone.png"),
-    snow: await new TextureLoader().loadAsync("assets/snow.png"),
+    dirt: await new TextureLoader().loadAsync(dirtURL),
+    dirt2: await new TextureLoader().loadAsync(dirt2URL),
+    grass: await new TextureLoader().loadAsync(grassURL),
+    sand: await new TextureLoader().loadAsync(sandURL),
+    water: await new TextureLoader().loadAsync(waterURL),
+    stone: await new TextureLoader().loadAsync(stoneURL),
+    snow: await new TextureLoader().loadAsync(snowURL),
   };
 
   const tiles = generateTileMesh(textures, envMap);

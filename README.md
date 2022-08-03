@@ -19,8 +19,9 @@ Additional work beyond the tutorial includes:
 - fine tuning of cloud count and cloud height ⛅
 - More expressive, commented, consistent function naming to clarify aspects of working with ThreeJS 
 - Modularized source code from monolith main file 🔧
-- Integration with VITE frontend toolkit for improvements in Developer Experience 🌟
+- Integration with VITE frontend toolkit for improvements in Developer Experience (absolute imports) 🌟
 - Integration with typescript, addition of docblocs to deepen understanding of ThreeJS concepts 
+- Integration with typescript-eslint
 
 <h2>Build Tools and Frameworks</h2>
 This project was bootstrapped with the VITE [quickstart tool] (https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
