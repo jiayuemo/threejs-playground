@@ -26,12 +26,14 @@ At the conclusion of the series, the procedural map was generated with threeJS i
 
 Additional work beyond the tutorial includes:
 - addition of scene prop, or doodle, to the procedure map. Try to find the snowmen like statues sitting on top of snow tiles on the map! ⛄
+- Usage of Vector3 over Vector2 to better represent tile positions 
 - fine tuning of cloud count and cloud height ⛅
 - More expressive, commented, consistent function naming to clarify aspects of working with ThreeJS 
 - Modularized source code from monolith main file 🔧
 - Integration with VITE frontend toolkit for improvements in Developer Experience (absolute imports) 🌟
 - Integration with typescript, addition of docblocs to deepen understanding of ThreeJS concepts 
 - Integration with typescript-eslint
+- Deployment of the project to github pages with github workflows
 
 <h2>Build Tools and Frameworks</h2>
 This project was bootstrapped with the VITE [quickstart tool] (https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
@@ -45,7 +47,7 @@ This is a vanillaJS project with typescript.
 - [simplex-noise] (https://www.npmjs.com/package/simplex-noise), noise gradient for procedural goodness
 
 <h2>Local development</h2>
-```
+```sh
 # Make sure you are on Node v16+
 > npm i
 > npm run dev
