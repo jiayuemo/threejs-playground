@@ -47,6 +47,7 @@ This is a vanillaJS project with typescript.
 - [simplex-noise] (https://www.npmjs.com/package/simplex-noise), noise gradient for procedural goodness
 
 <h2>Local development</h2>
+
 ```sh
 # Make sure you are on Node v16+
 > npm i
